@@ -1,9 +1,11 @@
 import ButtonList from "./ButtonList";
+import VideoContainer from "./VideoContainer";
 
 const MainContainer = ()=>{
     return (
-        <div className="bg-white p-3">
+        <div className="bg-gray-200 p-3 w-[100%]">
             <ButtonList/>
+            <VideoContainer/>
         </div>
     )
 }

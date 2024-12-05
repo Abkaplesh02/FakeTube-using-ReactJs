@@ -1,6 +1,7 @@
 const SideBar = () =>{
     return (
-        <div className="w-[14rem] bg-white px-6 shadow-2xl h-[100vh]">
+        // <div className="sticky left-0  w-3/12 bg-white px-6 shadow-2xl ">
+        <div className="sticky top-[74px] left-0 h-[700px] w-3/12 bg-white px-6 shadow-2xl overflow-y-auto">
             
             <ul className=" text-md border-b-2 py-2 border-gray-500 ">
               <li className="py-2 font-semibold hover:bg-gray-200 px-3 hover:rounded-xl">Home</li>
@@ -25,6 +26,41 @@ const SideBar = () =>{
                 <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">My Ashraya </li>
                 <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">The Truth Show</li>
             </ul>
+
+
+            <h1 className="py-2 font-semibold px-3">Explore</h1>
+            <ul className="border-b-2 pb-2 border-gray-500">
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Trending</li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Shopping</li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Music</li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Films </li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Live</li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Gaming</li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">News</li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Sport</li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Courses </li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Fashion & beauty</li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Podcasts</li>
+            </ul>
+
+
+            <h1 className="py-2 font-semibold px-3">More from Youtube</h1>
+            <ul className="border-b-2 pb-2 border-gray-500">
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Youtube Premium</li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Youtube Studio</li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Youtube Music</li>
+                <li className="py-2  hover:bg-gray-200 px-3 hover:rounded-xl">Youtube Kids</li>
+            </ul>
+
+            <ul className=" text-md border-b-2 py-2 border-gray-500 ">
+              <li className="py-2 font-semibold hover:bg-gray-200 px-3 hover:rounded-xl">Settings</li>
+              <li className="py-2 font-semibold  hover:bg-gray-200 px-3 hover:rounded-xl">Report history</li>
+              <li className="py-2 font-semibold  hover:bg-gray-200 px-3 hover:rounded-xl">Help</li>
+              <li className="py-2 font-semibold  hover:bg-gray-200 px-3 hover:rounded-xl">Send feedback</li>
+
+            </ul>
+
+            
         </div>
     )
 }

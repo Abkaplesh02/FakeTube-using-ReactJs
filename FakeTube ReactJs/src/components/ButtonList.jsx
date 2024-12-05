@@ -2,7 +2,7 @@ import Button from "./Button";
 
 const ButtonList=()=>{
 
-    const ButtonList=["All", "Music", "Kumar Sanu","Mixes"  , "Gaming","Songs","Live","Soccer","Cricket", "Dance troupes" , "T-series", "JavaScript","Movie musicals"]
+    const ButtonList=["All", "Music", "Kumar Sanu"  , "Gaming","Songs","Live","Soccer","Cricket", "Dance troupes" , "T-series", "JavaScript","Movie musicals"]
     return (
         <div className="flex">
 
