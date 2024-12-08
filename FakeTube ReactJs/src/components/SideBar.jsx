@@ -1,7 +1,7 @@
 const SideBar = () =>{
     return (
         // <div className="sticky left-0  w-3/12 bg-white px-6 shadow-2xl ">
-        <div className="sticky top-[74px] left-0 h-[700px] w-3/12 bg-white px-6 shadow-2xl overflow-y-auto">
+        <div className="sticky z-50 top-[74px] left-0 h-[700px] w-3/12 bg-white px-6 shadow-2xl overflow-y-scroll scroll-smooth scrollbar-hidden hover:scrollbar-visible">
             
             <ul className=" text-md border-b-2 py-2 border-gray-500 ">
               <li className="py-2 font-semibold hover:bg-gray-200 px-3 hover:rounded-xl">Home</li>

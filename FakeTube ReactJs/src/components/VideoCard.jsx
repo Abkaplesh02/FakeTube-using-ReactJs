@@ -2,13 +2,12 @@ import { User } from "../utils/constant";
 
 /* eslint-disable react/prop-types */
 const VideoCard= ({data})=>{
-    console.log(data);
 
     const{snippet,statistics}=data;
     const{title,channelTitle,thumbnails}=snippet;
     
     return (
-        <div className="w-[22rem] mx-auto my-10  rounded-xl">
+        <div className="w-[22rem]  my-10  rounded-xl">
             <img className="rounded-xl " src={thumbnails.standard.url} alt="" />
             <div className="flex">
                 <img className="  my-3 h-8" src={User} alt="" />

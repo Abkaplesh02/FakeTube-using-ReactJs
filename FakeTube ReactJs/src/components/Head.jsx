@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { hamburger, User, YtLogo } from "../utils/constant";
 import { toggleMenu } from "../redux/hamburgerSlice";
+import { Link } from "react-router-dom";
+
 
 const Head = () =>{
 
@@ -11,15 +13,14 @@ const Head = () =>{
     }
 
     return (
-        // <div className="grid grid-flow-col p-6 shadow-xl ">
-        // <div className="fixed top-0 left-0 w-full  bg-white shadow-xl grid grid-flow-col p-6">
+        
         <div className="sticky top-0 z-50 bg-white shadow-xl grid grid-flow-col p-6">
             
 
             {/* Logo and hamburger section */}
             <div className="flex col-span-1 ">
                 <img onClick={handleMenu} className="h-6 cursor-pointer" src={hamburger} alt="hamburger" />
-                <a href=""><img className="h-6 mx-8" src={YtLogo} alt="LOGO"/></a>
+                <img className="h-6 mx-8" src={YtLogo} alt="LOGO"/>
             </div>
             
             {/* Search bar and microphone */}

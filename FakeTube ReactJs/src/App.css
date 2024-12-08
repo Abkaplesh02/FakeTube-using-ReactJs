@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    /* Chrome, Safari and Opera */
+    .scrollbar-hidden::-webkit-scrollbar {
+      display: none;
+    }
+  
+    .scrollbar-hidden {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+  
+    /* Show scrollbar on hover */
+  .scrollbar-hidden:hover::-webkit-scrollbar {
+    display: block; /* For Chrome, Safari, and Opera */
+  }
+
+  .scrollbar-hidden:hover {
+    scrollbar-width: thin; /* For Firefox */
+    -ms-overflow-style: auto; /* For IE and Edge */
+  }
+}
+  
