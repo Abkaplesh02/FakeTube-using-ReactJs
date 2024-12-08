@@ -1,7 +1,8 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { hamburger, SearchApi, User, YtLogo } from "../utils/constant";
 import { toggleMenu } from "../redux/hamburgerSlice";
 import { useEffect, useState } from "react";
+import { cacheResult } from "../redux/searchSlice";
 
 
 
@@ -13,22 +14,41 @@ const Head = () =>{
         dispatch(toggleMenu());
     }
 
+    const cacheQuery=useSelector((store)=>store.search);
+
+
     const [search,setSearch]=useState("");
     console.log(search);
     const [data,setData]=useState([]);
     const [showSuggestion,setShowSuggestion]=useState(false);
 
     useEffect(()=>{
-        searchSuggestion();
+        const timer=setTimeout(()=>{ 
+            if(cacheQuery[search]){
+                setData(cacheQuery[search])
+            }
+            else{
+                searchSuggestion()
+            }
+        }
+            
+            ,200);
+        console.log("Api getting called")
+        return(()=>{
+            clearTimeout(timer);
+            console.log("Timer cleared ");
+        })
     },[search]);
 
     const searchSuggestion = async()=>{
+        console.log("API called")
         const data= await fetch(SearchApi+search);
         const json=await data.json();
         setData(json[1]);
+        dispatch(cacheResult({[search]:json[1]}));
         
 
-        console.log(json[1]);
+        // console.log(json[1]);
     }
 
     return (
