@@ -20,7 +20,7 @@ const VideoList = () =>{
                 <button className="p-2 bg-gray-100 mx-2 px-4 my-3 rounded-xl cursor-pointer" >The engineering digest</button>
 
                 {
-                    videoData.map((data)=><Link to={"/watch?v="+data.id}><VideoCardWatch key={data.id} data={data}/></Link>)
+                    videoData.map((data)=><Link key={data.id} to={"/watch?v="+data.id}><VideoCardWatch key={data.id} data={data}/></Link>)
                 }
                 </div>
             
