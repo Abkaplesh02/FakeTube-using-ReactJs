@@ -6,6 +6,8 @@ import { cacheResult } from "../redux/searchSlice";
 
 
 
+
+
 const Head = () =>{
 
     const dispatch=useDispatch();
@@ -14,42 +16,44 @@ const Head = () =>{
         dispatch(toggleMenu());
     }
 
-    const cacheQuery=useSelector((store)=>store.search);
 
+// Search bar operations on search suggestions
 
     const [search,setSearch]=useState("");
-    console.log(search);
-    const [data,setData]=useState([]);
-    const [showSuggestion,setShowSuggestion]=useState(false);
+    const [suggestion,setSuggestions]=useState([]);
+    const [focus,setFocus]=useState(false);
+    const searchQuery =useSelector((store)=>store.search);
 
     useEffect(()=>{
-        const timer=setTimeout(()=>{ 
-            if(cacheQuery[search]){
-                setData(cacheQuery[search])
+        
+        const timer= setTimeout(()=>{
+
+            if(searchQuery[search]){
+                setSuggestions(searchQuery[search]);
             }
             else{
-                searchSuggestion()
+                getSuggestion()
             }
         }
-            
             ,200);
-        console.log("Api getting called")
+
         return(()=>{
             clearTimeout(timer);
-            console.log("Timer cleared ");
         })
     },[search]);
 
-    const searchSuggestion = async()=>{
-        console.log("API called")
-        const data= await fetch(SearchApi+search);
-        const json=await data.json();
-        setData(json[1]);
-        dispatch(cacheResult({[search]:json[1]}));
-        
 
-        // console.log(json[1]);
+    // function to fetch suggestions
+    const getSuggestion= async()=>{
+        const data=await fetch(SearchApi+search);
+        const json=await data.json();
+        setSuggestions(json[1]);
+        dispatch(cacheResult({[search]:json[1]}));
+        console.log(json[1])
+
     }
+
+
 
     return (
         
@@ -65,14 +69,13 @@ const Head = () =>{
             {/* Search bar and microphone */}
             <div className="col-span-10 flex ml-[10vw] relative">
                 <div className=" relative w-1/2">
-                <input onFocus={()=>setShowSuggestion(true)} onBlur={()=>setShowSuggestion(false)} className=" w-full border  border-gray-400 rounded-l-full pl-2" type="Search" placeholder="Search" value={search} onChange={(e)=>setSearch(e.target.value)}/>
-                {
-                    showSuggestion && <ul  className=" absolute w-full bg-white top-[28px] rounded-lg ">
-                    { 
-                        data.map((e,index)=><li key={index} className=" px-2 my-2 py-2 hover:bg-gray-200 " >⌛{" "+e}</li>)
+                <input onFocus={()=>setFocus(true)} onBlur={()=>setFocus(false)} className=" w-full border  border-gray-400 rounded-l-full pl-6" type="Search" placeholder="Search" value={search} onChange={(e)=>setSearch(e.target.value)}/>
+                {focus &&  <ul className="w-full absolute bg-white rounded-xl ">
+                    {
+                        suggestion.map((e,index)=><li className="pl-1 py-2  border-b-2 border-gray-100 hover:bg-gray-100" key={index}>⌛{e}</li>)
                     }
-                </ul>
-                }
+                </ul>}
+                
                 
                 </div>
                 <button className="text-red-600  px-5 border border-gray-400 rounded-r-full">🔎</button>

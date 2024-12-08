@@ -6,7 +6,7 @@ import store from './redux/store'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainContainer from './components/MainContainer'
 import WatchPage from './components/WatchPage'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
 const appRoute=createBrowserRouter([
   {
