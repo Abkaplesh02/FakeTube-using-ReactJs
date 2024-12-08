@@ -16,3 +16,5 @@ export const YoutubeVideoApi=
 export const YoutubeLikedVideoApi=
 "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=48&regionCode=IN&key="+APIKey;
 
+export const SearchApi=
+"http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";

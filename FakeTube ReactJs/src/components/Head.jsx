@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
-import { hamburger, User, YtLogo } from "../utils/constant";
+import { hamburger, SearchApi, User, YtLogo } from "../utils/constant";
 import { toggleMenu } from "../redux/hamburgerSlice";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 
 
 const Head = () =>{
@@ -10,6 +11,24 @@ const Head = () =>{
 
     const handleMenu=()=>{
         dispatch(toggleMenu());
+    }
+
+    const [search,setSearch]=useState("");
+    console.log(search);
+    const [data,setData]=useState([]);
+    const [showSuggestion,setShowSuggestion]=useState(false);
+
+    useEffect(()=>{
+        searchSuggestion();
+    },[search]);
+
+    const searchSuggestion = async()=>{
+        const data= await fetch(SearchApi+search);
+        const json=await data.json();
+        setData(json[1]);
+        
+
+        console.log(json[1]);
     }
 
     return (
@@ -24,11 +43,24 @@ const Head = () =>{
             </div>
             
             {/* Search bar and microphone */}
-            <div className="col-span-10 flex ml-[10vw]">
-                <input className="w-1/2 border  border-gray-400 rounded-l-full pl-4" type="Search" placeholder="Search" />
+            <div className="col-span-10 flex ml-[10vw] relative">
+                <div className=" relative w-1/2">
+                <input onFocus={()=>setShowSuggestion(true)} onBlur={()=>setShowSuggestion(false)} className=" w-full border  border-gray-400 rounded-l-full pl-2" type="Search" placeholder="Search" value={search} onChange={(e)=>setSearch(e.target.value)}/>
+                {
+                    showSuggestion && <ul  className=" absolute w-full bg-white top-[28px] rounded-lg ">
+                    { 
+                        data.map((e,index)=><li key={index} className=" px-2 my-2 py-2 hover:bg-gray-200 " >⌛{" "+e}</li>)
+                    }
+                </ul>
+                }
+                
+                </div>
                 <button className="text-red-600  px-5 border border-gray-400 rounded-r-full">🔎</button>
                 <img className="h-6 ml-5 cursor-pointer" src="https://cdn1.iconfinder.com/data/icons/audio-and-music/64/microphone_audio_record_youtube_beat-2-512.png" alt="" />
+                
+            
             </div>
+            
 
             {/* User  */}
             <div className="col-span-1">
