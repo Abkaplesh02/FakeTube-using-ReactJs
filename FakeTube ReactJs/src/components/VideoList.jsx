@@ -10,7 +10,7 @@ const VideoList = () =>{
     if(videoData==null){
         return;
     }
-    console.log(videoData);
+    // console.log(videoData);
 
     return(
         <div className="bg-red-100 border-2 border-black">

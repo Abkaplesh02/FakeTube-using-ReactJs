@@ -49,7 +49,7 @@ const Head = () =>{
         const json=await data.json();
         setSuggestions(json[1]);
         dispatch(cacheResult({[search]:json[1]}));
-        console.log(json[1])
+        // console.log(json[1])
 
     }
 

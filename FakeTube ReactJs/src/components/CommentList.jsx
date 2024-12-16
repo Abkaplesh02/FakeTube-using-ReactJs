@@ -2,6 +2,7 @@ import Comment from "./Comment";
 
 const CommentList= ({data})=>{
 
+
     return (
         <div>
             {data.map((comment,index)=>( 
