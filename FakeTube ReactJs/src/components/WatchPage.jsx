@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import VideoList from "./VideoList";
 import CommentContainer from "./CommentContainer";
+import LiveChat from "./LiveChat";
 
 const WatchPage = () =>{
 
@@ -13,6 +14,7 @@ const WatchPage = () =>{
             <div ><CommentContainer/></div>
             </div>
             <div className="w-4/12">
+            <LiveChat/>
             <VideoList />
             
             </div>
