@@ -57,7 +57,7 @@ const Head = () =>{
 
     return (
         
-        <div className="sticky top-0 z-50 bg-white shadow-xl grid grid-flow-col p-6">
+        <div className="sticky top-0 z-50 bg-white shadow-xl grid grid-flow-col p-6 " >
             
 
             {/* Logo and hamburger section */}

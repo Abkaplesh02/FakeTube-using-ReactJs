@@ -3,7 +3,7 @@ import VideoContainer from "./VideoContainer";
 
 const MainContainer = ()=>{
     return (
-        <div className="bg-gray-200 p-3 w-[100%]">
+        <div className="bg-gray-200 p-3 w-[100vw]">
             <ButtonList/>
             <VideoContainer/>
         </div>
